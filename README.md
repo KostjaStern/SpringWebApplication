@@ -13,6 +13,7 @@
 
 ## The project structure:
 
+```
 SpringWebApplication.ear
  |-- lib
  |     |-- app-lib1-0.1.jar
@@ -46,5 +47,5 @@ SpringWebApplication.ear
              |    |-- ...
              |-- spring
                   |-- applicationContext.xml
-
+```
 P.S. The sceleton was takn from [this](https://spring.io/blog/2007/06/11/using-a-shared-parent-application-context-in-a-multi-war-spring-application/) article and then reworked to the maven project.
