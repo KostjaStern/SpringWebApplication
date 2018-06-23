@@ -40,6 +40,7 @@ SpringWebApplication.ear
  |                 |-- applicationContext.xml
  |
  |-- AppWeb2.war
+       |-- WEB-INF
              |-- web.xml
              |-- lib
              |    |-- ...
