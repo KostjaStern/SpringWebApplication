@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="WebApp_ID" version="2.5" 
-    xmlns="http://java.sun.com/xml/ns/j2ee" 
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-    xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_5.xsd">
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+  version="3.1">
 
-    <display-name>AppWeb1</display-name>
+    <display-name>AppRestAPI</display-name>
 
     <context-param>
         <param-name>locatorFactorySelector</param-name>
@@ -16,19 +17,37 @@
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/spring/applicationContext.xml</param-value>
+        <param-value>/WEB-INF/spring/rest-servlet.xml</param-value>
     </context-param>
 
     <listener>
+        <listener-class>com.sternkn.spring.multcontext.platform.AppPlatformServletContextListener</listener-class>
+    </listener>
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
+
+    <filter>
+       <filter-name>GlobalFilter</filter-name>
+       <filter-class>com.sternkn.spring.multcontext.rest.GlobalFilter</filter-class>
+    </filter>
+    <filter-mapping>
+       <filter-name>GlobalFilter</filter-name>
+       <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    
+    <filter>
+       <filter-name>TestRestFilter</filter-name>
+       <filter-class>com.sternkn.spring.multcontext.rest.TestRestFilter</filter-class>
+    </filter>
 
     <servlet>
         <description>Calls the generic SampleService from its parent ApplicationContext</description>
         <display-name>FirstServlet</display-name>
         <servlet-name>FirstServlet</servlet-name>
-        <servlet-class>com.sternkn.spring.multcontext.web1.FirstServlet</servlet-class>
+        <servlet-class>com.sternkn.spring.multcontext.rest.FirstServlet</servlet-class>
     </servlet>
+    
     <servlet>
         <servlet-name>rest</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -36,7 +55,7 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/spring/rest-servlet.xml</param-value>
         </init-param>
-        <load-on-startup>1</load-on-startup>
+        <!--  <load-on-startup>1</load-on-startup>  -->
     </servlet>
 
     <servlet-mapping>
@@ -48,6 +67,12 @@
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
     
+ 
+    <filter-mapping>
+       <filter-name>TestRestFilter</filter-name>
+       <servlet-name>rest</servlet-name>
+    </filter-mapping>
+
     <welcome-file-list>
         <welcome-file>first</welcome-file>
     </welcome-file-list>

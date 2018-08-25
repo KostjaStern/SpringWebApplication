@@ -1,4 +1,4 @@
-package com.sternkn.spring.multcontext.web1;
+package com.sternkn.spring.multcontext.rest;
 
 import java.io.IOException;
 

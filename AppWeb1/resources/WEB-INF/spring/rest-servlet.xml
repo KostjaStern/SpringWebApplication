@@ -7,13 +7,22 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
                         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
                         http://www.springframework.org/schema/context
-                        http://www.springframework.org/schema/context/spring-context-4.1.xsd
-                        http://www.springframework.org/schema/mvc
-                        http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd">
+                        http://www.springframework.org/schema/context/spring-context-4.1.xsd">
 
+<!-- 
+   http://www.springframework.org/schema/context
+   http://www.springframework.org/schema/context/spring-context-4.1.xsd
+   http://www.springframework.org/schema/mvc
+   http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+ -->
     <!-- Define beans specific to the SampleWeb1 project here. 
          Beans used by all WARs should be defined in the SampleServices project instead. -->
+    <!-- 
     <context:component-scan 
         base-package="com.sternkn.spring.multcontext.web1.rest"/>
-    <mvc:annotation-driven/>
+    -->
+    <!-- <mvc:annotation-driven/>  -->
+    <context:annotation-config/>
+    
+    <bean class="com.sternkn.spring.multcontext.rest.RestApiFactory"/>
 </beans>
