@@ -36,7 +36,7 @@
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>3.1.0</version>
-            <!-- <scope>provided</scope> -->
+            <scope>provided</scope>
         </dependency>
 
         <!-- Spring -->
@@ -74,9 +74,9 @@
 
     <modules>
         <module>AppEar</module>
-        <module>AppLib1</module>
-        <module>AppWeb1</module>
-        <module>AppWeb2</module>
+        <module>AppInfrastructure</module>
+        <module>AppWS</module>
+        <module>AppRest</module>
     </modules>
 
     <build>

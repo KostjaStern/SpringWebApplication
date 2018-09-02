@@ -16,7 +16,7 @@
 ```
 SpringWebApplication.ear
  |-- lib
- |     |-- app-lib1-0.1.jar
+ |     |-- app-infrastructure-0.1.jar
  |           |-- spring
  |           |    |-- beanRefContext.xml
  |           |    |-- services-context.xml
@@ -29,7 +29,7 @@ SpringWebApplication.ear
  |     |-- application.xml
  | 
  |
- |-- AppWeb1.war
+ |-- AppRest.war
  |     |-- WEB-INF
  |           |-- web.xml
  |           |-- lib
@@ -39,7 +39,7 @@ SpringWebApplication.ear
  |           |-- spring
  |                 |-- applicationContext.xml
  |
- |-- AppWeb2.war
+ |-- AppWS.war
        |-- WEB-INF
              |-- web.xml
              |-- lib

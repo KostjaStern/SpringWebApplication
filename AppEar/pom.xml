@@ -8,8 +8,9 @@
         <artifactId>app-reactor</artifactId>
         <version>0.1</version>
     </parent>
+
     <artifactId>app-ear</artifactId>
-    <name>APP-EAR</name>
+    <name>app-ear</name>
     <description>Spring enterprise application</description>
     <packaging>ear</packaging>
     <properties>
@@ -18,19 +19,19 @@
     <dependencies>
         <dependency>
             <groupId>com.sternkn.spring.multcontext</groupId>
-            <artifactId>app-lib1</artifactId>
+            <artifactId>app-infrastructure</artifactId>
             <version>${project.version}</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.sternkn.spring.multcontext</groupId>
-            <artifactId>app-web1</artifactId>
+            <artifactId>app-rest</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>com.sternkn.spring.multcontext</groupId>
-            <artifactId>app-web2</artifactId>
+            <artifactId>app-ws</artifactId>
             <version>${project.version}</version>
             <type>war</type>
         </dependency>
@@ -62,17 +63,18 @@
                     <modules>
                         <jarModule>
                             <groupId>com.sternkn.spring.multcontext</groupId>
-                            <artifactId>app-lib1</artifactId>
+                            <artifactId>app-infrastructure</artifactId>
+                            <bundleFileName>app-infrastructure.jar</bundleFileName>
                         </jarModule>
                         <webModule>
                             <groupId>com.sternkn.spring.multcontext</groupId>
-                            <artifactId>app-web1</artifactId>
-                            <bundleFileName>AppWeb1.war</bundleFileName>
+                            <artifactId>app-rest</artifactId>
+                            <bundleFileName>AppRest.war</bundleFileName>
                         </webModule>
                         <webModule>
                             <groupId>com.sternkn.spring.multcontext</groupId>
-                            <artifactId>app-web2</artifactId>
-                            <bundleFileName>AppWeb2.war</bundleFileName>
+                            <artifactId>app-ws</artifactId>
+                            <bundleFileName>AppWS.war</bundleFileName>
                         </webModule>
                     </modules>
                 </configuration>
